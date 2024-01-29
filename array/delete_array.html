@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete an Element from an Array in JS</title>
+</head>
+<body>
+    <script>
+        let data = [121,23,45,67,34,123,189,900,1976];
+        console.log(data);
+        let position = 4;
+        for(i=position;i<data.length-1;i++){
+            // if(i == position){
+                data[i] = data[i+1];
+            // }
+        }
+        data.length = data.length-1
+        console.log(data);
+    </script>
+</body>
+</html>

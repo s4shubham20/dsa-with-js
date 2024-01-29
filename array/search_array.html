@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching in Array</title>
+</head>
+<body>
+    <script>
+        let searchVal = 312;
+        let data = [4,2,42,312,31,23,21,100,101,312]
+        let index = undefined;
+        for(let i=0; i<data.length;i++){
+            if(data[i] === searchVal){
+                index = i;
+                break;
+            }
+            // console.log(data[i]);
+        }
+        console.log(index)
+    </script>
+</body>
+</html>

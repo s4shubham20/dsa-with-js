@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Traversing</title>
+</head>
+<body>
+    <script>
+        let data = [12,45,12,34,121,45,13];
+        for(i=0; i<data.length;i++){
+            document.write(`this is key ${i} and value of this ${data[i]} </br>`);
+        }
+
+        // How to accessing an array value without loop;
+        // console.log(data.indexOf(3));
+        let result = prompt("please enter a value!");
+        while(true){
+            if(result >= 0 && result < data.length){
+                console.log(data[result]);
+                break;
+            }else{
+                result = prompt('Please enter a valid number!');
+            }
+        }
+    </script>
+</body>
+</html>

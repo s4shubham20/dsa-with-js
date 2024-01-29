@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Array in JS</title>
+</head>
+<body>
+    <script>
+        let data1 = [12,13,213,21,312,31];
+        let data2 = [3,42,323,24,353,45,345,100,109];
+        let data3 = [23,142,3223,2324,3523,435,3245,1010,1019,1097];
+        let data4 = [];
+        // let data4 = [...data1,...data2,...data3];
+        
+        for(let i=0; i<data1.length;i++){
+            data4[i] = data1[i]
+        }
+        for(let i=0; i<data2.length;i++){
+            data4[data1.length + i] = data2[i]
+        }
+        for(let i=0; i<data3.length;i++){
+            data4[(data1.length + data2.length) + i] = data3[i]
+        } 
+        console.log("for loop merge " ,data4);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert an Element in an Array in JS</title>
+</head>
+<body>
+    <script>
+        let data = [12, 45, 46, 75, 54, 68, 34];
+        let newElement = 800;
+        let position = 1;
+        console.log(data);
+        for (let i = data.length-1; i >= 0;  i--) {
+            // console.log(data[i]); 
+            if(i >= position){
+                data[i+1] = data[i];
+                if(position == i){
+                    data[i] = newElement;
+                }
+            }  
+        }
+        console.log(data)
+    </script>
+</body>
+</html>
