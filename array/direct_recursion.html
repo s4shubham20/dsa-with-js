@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Recursion in JS</title>
+</head>
+<body>
+    
+    <script>
+       /* function apple(item){
+            // console.log('Hello');
+            // if(item == 0){
+            //     return 1;
+            // }
+            // return item*apple(item-1);
+            return item == 0 ? 1 :  item*apple(item-1); 
+        }
+        let data = 6;
+        console.log(`the factorial number of ${data} is ${apple(data)}`);*/
+
+        const func1 = (item) => {
+            // this is called head recursion;
+            // console.log(item);
+            if(item > 0){
+                func1(item-1);
+                // console.log(item);
+            }
+            // this is called tail recursion;
+            // console.log(item);
+
+
+        }
+
+        func1(10);
+        // this is callback stack
+        // LIFO => Last In First Out => stack;
+        const color = () => {
+            console.log('color');
+        }
+        
+        const print = () => {
+            console.log('print');
+            color();
+        }
+        const fruits = () => {
+            console.log('fruits');
+            print();
+        }
+        
+        const helloWord = () => {
+            console.log('helloWord');
+            fruits();
+            console.log("hello fruits");
+        }
+        
+        helloWord();
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Direct Recursion In JS</title>
+</head>
+<body>
+    
+    <script>
+        let amount = 100;
+        let mangoCount = 0;
+
+        const buyFruit = (item) => {
+            if(item > 0){
+                console.log(`You have left amount of ${item} and fruit ${mangoCount}`)
+                buyMore(item-5);
+            }else{
+                console.log(`You have left amount of ${item} and fruit ${mangoCount}`)
+            }
+        }
+
+        let buyMore = (item) => {
+            mangoCount++;
+            buyFruit(item);
+        }
+
+        buyFruit(amount);
+    </script>
+</body>
+</html>

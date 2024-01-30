@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting an Array in JS</title>
+</head>
+<body>
+    
+    <script>
+        // let arr = [65,4,78,56];
+        let temp = 0;
+        let arr = [121,14,321,32,13,123,657,65,100,99,7,90];
+        for(let i=0; i<arr.length;i++){
+           for(j=0;j<arr.length;j++){
+            // console.log('array i key = ',i, 'and j key =',j,  arr);
+                if(arr[j] < arr[j+1]){
+                    temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+                // if(i == 1 && j == 2){
+                //     break;
+                // }
+            }
+            // if(i == 1){
+            //     break;
+            // }
+        }
+        console.log(arr);
+        //array insertion;
+        let data = [12,13,131,31,14,16,19,2,5];
+        console.log(data)
+        let position = 0;
+        let newElement = 56;
+        for(i=data.length-1; i >=0;i--){
+            if(i>=position){
+                data[i+1] =  data[i];
+               if(i==position){
+                data[i] = newElement;
+               }
+            }
+            // console.log(data[i]);
+        }
+        console.log(data)
+    </script>
+</body>
+</html>
