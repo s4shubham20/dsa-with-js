@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head and Tail Recursion</title>
+</head>
+<body>
+    
+    <script>
+        let data = 'Print this n number of times';
+
+        const printFun = (item) => {
+            // this is called head recursion
+            // console.log(item);
+            if(item > 0){
+                printFun(item-1);
+            }
+            // this is called tail recursion
+            // console.log(item);
+        }
+
+        printFun(10);
+    </script>
+</body>
+</html>

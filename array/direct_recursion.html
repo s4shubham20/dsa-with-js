@@ -8,7 +8,7 @@
 <body>
     
     <script>
-       /* function apple(item){
+       function apple(item){
             // console.log('Hello');
             // if(item == 0){
             //     return 1;
@@ -17,8 +17,15 @@
             return item == 0 ? 1 :  item*apple(item-1); 
         }
         let data = 6;
-        console.log(`the factorial number of ${data} is ${apple(data)}`);*/
+        // console.log(`the factorial number of ${data} is ${apple(data)}`);
 
+        const printFun = (item) => {
+            console.log('Hello');
+            if(item > 0){
+                printFun(item-1);   
+            }
+        }
+        printFun(data);
         const func1 = (item) => {
             // this is called head recursion;
             // console.log(item);
@@ -54,7 +61,7 @@
             console.log("hello fruits");
         }
         
-        helloWord();
+        // helloWord();
     </script>
 </body>
 </html>

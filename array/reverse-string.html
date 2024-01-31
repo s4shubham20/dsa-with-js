@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /* 
+        let str = "absitijklmklpjkqukeksli";
+        let searchValue = 'k';
+        let index = '';
+        for(i=0;i<str.length;i++){
+            // console.log(str[i]);
+            if(str[i] === searchValue){
+                index += `\n${str[i]} index => ${i}`;
+            }
+        }
+        console.log(index) */
+        let currentSize = 0;
+        let arr = [];
+        const push = (item, str) => {
+            if(currentSize < str.length){
+                arr[currentSize] = item;
+                currentSize++;
+            }
+        }
+
+        const pop = () => {
+            currentSize--;
+            currentItem = arr[currentSize]; 
+            arr.length = currentSize;
+            return currentItem;
+        }
+        let str = "Anil";
+        let strnew = '';
+        for(i=0;i<str.length;i++){
+            push(str[i],str);
+        }
+        
+        for(i=0;i<str.length;i++){
+            strnew+= pop();
+        }
+        console.log(strnew);
+        // console.log(arr);
+    </script>
+</body>
+</html>

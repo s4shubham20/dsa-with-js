@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Delete Element in an Array using Stack</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="value" id="value" class="form-control" placeholder="Enter value.."/>
+        <button id="addBtn">Add Element</button>
+        <button id="deleteBtn">Delete Element</button>
+        <button id="printBtn">Print Stack Array</button>
+    </form>
+    <script>
+        let arr = [];
+        let currentSize = arr.length;
+        let maxSizeAllowed = 10;
+
+        // adding an element in an array using push;
+        const push = (item) => {
+            if(currentSize < maxSizeAllowed){
+                arr[currentSize] = item;
+                currentSize++;
+            }
+        }
+
+        // deleting an element from an array using pop;
+        const pop = () => {
+            if(currentSize > 0){
+                currentSize--;
+                arr.length = currentSize
+            }
+        }
+
+        document.querySelector("#addBtn").addEventListener('click', (evt) => {
+            evt.preventDefault();
+            let element = evt.currentTarget.previousElementSibling;
+            push(element.value);
+            element.value = '';
+        });
+        
+        document.querySelector("#deleteBtn").addEventListener('click', (evt) => {
+            evt.preventDefault();
+            pop();
+            
+        });
+        
+        document.querySelector("#printBtn").addEventListener('click', (evt) => {
+            evt.preventDefault();
+            console.log(arr);
+        });
+    </script>
+</body>
+</html>
