@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Circular Queue In JS</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		class CircularQueue{
+
+			constructor(size){
+				this.maxSize = size;
+				this.currentSize = 0;
+				this.queue = new Array(size);
+				this.front = 0;
+				this.rear = -1;
+			}
+
+			enqueue(item){
+				if (this.currentSize >= this.maxSize)
+					throw new Error("Queue overflowed!");
+				this.rear++;
+				this.queue[this.rear] = item;
+				return this.currentSize++;
+				return item;
+			}
+
+			dequeue(){
+				if(this.isEmpty())
+					throw new Error("The queue is empty!");
+				const value = this.getFront();
+				this.queue[this.front] = null;
+				this.front++;
+				return value;
+
+			}
+
+			getFront() {
+				if(this.isEmpty())
+					throw new Error("No elements in the queue");
+				return this.queue[this.front];
+			}
+
+			isEmpty(){
+				return this.currentSize == 0;
+			}
+		}
+
+		let q = new CircularQueue(5);
+	</script>
+</body>
+</html>

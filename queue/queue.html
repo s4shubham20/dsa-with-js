@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Queue in JS</title>
+</head>
+<body>
+	<form>
+		<input type="text" name="element" placeholder="Please add element here!"/>
+		<button id="enqueue">Enqueue</button>
+		<button id="dequeue">Dequeue</button>
+		<button id="front">Front</button>
+		<button id="rear">Rear</button>
+		<button id="display">Display</button>
+	</form>
+	<script type="text/javascript">
+		let element = document.querySelector("input[name='element']");
+		let add = document.querySelector("#enqueue");
+		let deleteEle = document.querySelector("#dequeue");
+		let front = document.querySelector("#front");
+		let rear = document.querySelector("#rear");
+		let displayEle = document.querySelector("#display");
+		class Queue{
+			queue = [];
+			currentSize;
+			maxSize;
+			constructor(size){
+				this.currentSize = this.queue.length;
+				this.maxSize = size;
+			}
+
+			enqueue(){
+				add.addEventListener('click', (e) => {
+					e.preventDefault();
+					let item = parseInt(element.value);
+					if(this.currentSize < this.maxSize){
+						this.queue[this.currentSize] = item;
+						this.currentSize++
+						element.value = '';
+						return item;
+					}else{
+						alert('Stack overflow!');
+					}
+				});
+			}
+
+			dequeue(){
+				deleteEle.addEventListener('click', (e) => {
+					e.preventDefault();
+					let currentItem = null;
+					if(!this.isEmpty()){
+						for(let i=0;i<this.queue.length;i++){
+							if(currentItem == null){
+								currentItem = this.queue[i];
+							}
+							this.queue[i] = this.queue[i+1];
+						}
+						this.currentSize--;
+						this.queue.length = this.currentSize;
+						return currentItem;
+					}
+				});
+			}
+
+			display(){
+				displayEle.addEventListener('click', (evt) => {
+					evt.preventDefault();
+					if(!this.isEmpty()){
+						console.log(this.queue);
+						return this.queue;
+					}
+				})
+			}
+
+			isEmpty(){
+				if(this.currentSize <= 0){
+					alert('Queue is empty!');
+					return true;
+				}else{
+					return false;
+				}
+			}
+
+			front(){
+				front.addEventListener('click', (evt) => {
+					evt.preventDefault();
+					if(!this.isEmpty()){
+						console.log(this.queue[0]);
+						return this.queue[0];
+					}
+				});
+			}
+
+			rear(){
+				rear.addEventListener('click', (evt) => {
+					evt.preventDefault();
+					if(!this.isEmpty()){
+						console.log(this.queue[this.currentSize-1]);
+						return this.queue[this.currentSize-1];
+					}
+				});
+			}
+		}
+
+		let q = new Queue(5);
+		q.enqueue();
+		q.display();
+		q.dequeue();
+		q.front();
+		q.rear();
+	</script>
+</body>
+</html>

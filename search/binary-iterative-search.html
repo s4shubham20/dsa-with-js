@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Binary Search</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let data = [2,4,6,90,91,100,107,110,120];
+		let start = 0;
+		let end = data.length-1;
+		let findVal = 110;
+		let index = null;
+
+		while(start<=end){
+			let mid = Math.floor((start+end)/2);
+			if(data[mid] === findVal){
+				index = mid;
+				break;
+			}else if(data[mid] < findVal){
+				start = mid+1;
+			}else{
+				end = mid-1;
+			}
+				// console.log(mid);
+		}
+		console.log(index)
+	</script>
+</body>
+</html>
