@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Most occurance number in string</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	let str = 'hello Shubham how are you wellll';
+	let objStr = {};
+	let maxOccurance = '';
+
+	for(let i = 0; i < str.length; i++){
+		if(!objStr[str[i]]){
+			objStr[str[i]] = 0;
+		}
+		objStr[str[i]]++
+
+		if(maxOccurance == '' || objStr[str[i]] > objStr[maxOccurance]){
+			maxOccurance = str[i];
+		}
+	}
+		console.log(objStr)
+
+	console.log(maxOccurance);
+</script>
+</body>
+</html>

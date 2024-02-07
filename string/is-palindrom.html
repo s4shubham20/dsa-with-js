@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Palindrome String Or Number</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		const isPalindromeString = (str,start,end) => {
+			while(start < end){
+				if(str[start] === str[end])
+					return true;
+				start++;
+				end--;
+				return false;
+			}
+		}
+		let str = "Amanaplanacanal Panama";
+		str = str.toLowerCase();
+		let start = 0;
+		let end = str.length-1;
+		console.log(isPalindromeString(str,start,end));
+
+		const isAnagram = (str1, str2) => {
+			if(str1.length !== str2.length)
+				return false;
+			const objStr = {};
+			for(let ch of str1){
+				objStr[ch] = (objStr[ch] || 0) + 1;
+			}
+
+			for(ch of str2){
+				if(!objStr[ch])
+					return false;
+				objStr[ch]--;
+			}
+			return true;
+		}
+		console.log(isAnagram('Hello', "elloH"));
+
+		const maxOccurance = (str) => {
+			let max = '';
+			let objStr = {};
+
+			for(let i = 0; i < str.length; i++){
+				if(!objStr[str[i]]){
+					objStr[str[i]] = 0;
+				}
+				objStr[str[i]]++;
+				if(max === '' || objStr[str[i]] > objStr[max])
+					max = str[i];
+			}
+			console.log(objStr);
+			console.log(max);
+		}
+
+		maxOccurance("Hellok Mana");
+	</script>
+</body>
+</html>

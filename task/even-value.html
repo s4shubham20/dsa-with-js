@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Find Even Value from an array and make them double and find the length of array in manually</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let arr = [1,5,4,8,9,101,100,11,15,18,24];
+		let newArry = [];
+		let count = 0;
+
+		for(let i = 0; i < arr.length; i++){
+			if((arr[i] % 2) === 0){	
+				newArry.push(arr[i]*2);
+				count++;	
+			}
+		}
+
+		console.log(newArry);
+		console.log(count);
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Map DSA in JSSS</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let data = new Map([
+				['name' , 'anil'],
+				[true, 'boolean'],
+			]);
+		data.set('last name','Ram')
+		let getName = data.get('name');
+		let hasName = data.has('name');
+		console.log(getName);
+		console.log(hasName);
+		// data.clear();
+		data.delete('name');
+		let size = data.size;
+		console.log(data);
+		console.log(size);
+	</script>
+</body>
+</html>

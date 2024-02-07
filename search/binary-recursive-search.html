@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Binary Recursive Approach</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let data = [6,9,12,15,19,21,22,26,30];
+		let start = 0;
+		let end = data.length-1;
+		let findVal = 26;
+		let index;
+		console.log(data);
+		const recursiveBinary = (item,s,e) => {
+			let mid = Math.floor((s+e)/2);
+
+			if(findVal == data[mid]){
+				index = mid;
+				return true;
+			}else if(findVal > data[mid]){
+				recursiveBinary(item,mid+1,e)
+			}else{
+				recursiveBinary(item,s,mid-1);
+			}
+		}
+
+		recursiveBinary(data,start,end);
+		console.log(`the searching position of ${findVal} is ${index}`);
+	</script>
+</body>
+</html>

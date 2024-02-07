@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Selection Sort in JS</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let arr = [12,7,25,19,41,35];
+
+		const selectionSort = (item) => {
+			let minId;
+			for(let i=0;i<item.length;i++){
+				// console.log(item[i]);
+				minId = i;
+					console.log(item);
+				for(let j=i+1;j<item.length;j++){
+					if(item[j] < item[minId]){
+						minId = j;
+					}
+				}
+				let temp = item[minId];
+				item[minId] = item[i];
+				item[i] = temp;
+			}
+		}
+
+		selectionSort(arr);
+		// console.log(arr);
+	</script>
+</body>
+</html>
