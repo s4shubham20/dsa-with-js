@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Search Value and Node in Linked List</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		class List{
+
+			constructor(val){
+				this.head={
+					value:val,
+					next:null,
+				}
+
+				this.tail = this.head;
+				this.size = 1;
+			}
+
+			appendNode(data){
+				let append = {
+					value:data,
+					next:null,
+				}
+
+				this.tail.next = append;
+				this.tail = append;
+				this.size++;
+				return append;
+			}
+
+			insertNode(nodeVal, index){
+				let counter = 1;
+				let currentNode = this.head;
+				while(counter > index){
+					currentNode = currentNode.next;
+					counter++;
+				}
+
+				let nextNode = currentNode.next;
+				currentNode.next = {
+					value:nodeVal,
+					next:nextNode,
+				}
+				this.size++;
+				return currentNode;
+			}
+
+			searchNodeVal(searchVal){
+				let result;
+				let loop = true;
+				let lead = this.head;
+				while(loop){
+					lead = lead.next;
+					loop = !!lead;
+					if(loop && lead.value == searchVal){
+						result = lead;
+						loop = false;
+					}
+				}
+				if(result == undefined)
+					throw new Error('Search value is not match with linked list!');
+				return result;
+			}
+		}
+
+		let list = new List(100);
+		list.appendNode(200)
+		list.appendNode(300)
+		list.appendNode(400)
+		list.appendNode(500)
+		list.appendNode(600)
+		list.searchNodeVal(400);
+		list.insertNode(501,1);
+	</script>
+</body>
+</html>

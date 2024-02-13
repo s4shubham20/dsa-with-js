@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Palindrome Number</title>
+</head>
+<body>
+	<script type="text/javascript">
+		isPalindromeNumber = function(x) {
+			let nums = x.toString();
+		    let start = 0;
+		    let end = nums.length-1;
+		    while(start < end){
+				if(nums[start] != nums[end]){
+					return false
+				}
+				start++;
+				end--;
+			}
+			return true;
+		};
+
+		console.log(isPalindromeNumber(121));
+	</script>
+</body>
+</html>

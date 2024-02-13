@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Insert new node inside a node in linked list</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class List{
+			constructor(value){
+				this.head= {
+					value:value,
+					next:null,
+				}
+				this.tail = this.head;
+				this.size = 1;
+			}
+
+			append(val){
+				let newVal = {
+					value:val,
+					next:null,
+				}
+				this.tail.next = newVal;
+				this.tail = newVal;
+				this.size++;
+				return newVal;
+			}
+
+			insertNode(index, val){
+				let counter = 1;
+				let currentNode = this.head;
+				while(counter > index){
+					counter++;
+					currentNode = currentNode.next;
+				}
+				let nextNode = currentNode.next;
+				currentNode.next = {
+					value:val,
+					next:nextNode,
+				}
+				this.size++;
+				return currentNode;
+			}
+		}
+
+		let list = new List(100);
+		list.append(200);
+		list.append(300);
+		list.append(400);
+		list.append(500);
+		list.append(600);
+		list.insertNode(2,999);
+	</script>
+</body>
+</html>

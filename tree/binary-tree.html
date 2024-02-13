@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Binary Search Tree (Insert Node inside a tree)</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		class Node{
+			constructor(val)
+			{
+				this.value = val;
+				this.left= null;
+				this.right= null;
+			}
+		}
+		class BSTree{
+
+			constructor(){
+				// super(val);
+				this.root = null;
+			}
+
+			makeTree(val){
+				let newNodeVal = new Node(val);
+				if(this.root === null){
+					this.root = newNodeVal;
+				}else{
+					this.insertNode(this.root, newNodeVal);
+				}
+			}
+
+			insertNode(root, val){
+				if(root.value > val.value){
+					if(root.left === null){
+						root.left = val;
+					}else{
+						this.insertNode(root.left, val);
+					}
+				}else{
+					if(root.right == null){
+						root.right = val;
+					}else{
+						this.insertNode(root.right , val);
+					}
+				}
+			}
+
+			isTreeEmpty(){
+				return this.root === null;
+			}
+		}
+
+		let tree = new BSTree(100);
+		tree.makeTree(14);
+		tree.makeTree(10);
+		tree.makeTree(15);
+		tree.makeTree(34);
+		tree.makeTree(12);
+	</script>
+</body>
+</html>

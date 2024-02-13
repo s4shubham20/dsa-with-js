@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Link List</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class List{
+			constructor(data){
+				this.head = {
+					value:data,
+					next:null,
+				}
+
+				this.tail = this.head;
+				this.size = 1;
+			}
+
+			appendNode(data){
+				let newNode = {
+					value:data,
+					next:null,
+				}
+
+				this.tail.next = newNode;
+				this.tail = newNode;
+				this.size++;
+				return newNode;
+			}
+
+			insertNode(data, index){
+				let counter = 1;
+				let currentNode = this.head;
+				while(counter < index){
+					// console.log(currentNode);
+					currentNode = currentNode;
+					counter++
+				}
+
+				this.size++;
+				let nextNode = currentNode.next;
+				currentNode.next = {
+					value:data,
+					next:nextNode
+				}
+				return currentNode;
+			}
+
+			traversing(){
+				let counter = 1;
+				let currentNode = this.head;
+				while(counter <= this.size){
+					currentNode = currentNode.next;
+					counter++
+					console.log(currentNode);
+				}
+				return currentNode;
+			}
+
+			deleteNode(index){
+				let counter = 1;
+				let lead = this.head;
+				if(index === 1){
+					this.head = this.head.next;
+					this.size--;
+				}
+				else{
+					while(counter <= this.size && counter == index){
+						counter++;
+						lead = lead.next;
+						this.size--;
+					}
+					let nextNode = lead.next.next;
+					lead.next = nextNode;
+					return lead;
+				}
+			}
+
+			searchNodeVal(val){
+				let result;
+				let loop = true;
+				let lead = this.head;
+				while(loop){
+					lead = lead.next;
+					loop = !!lead;
+					if(loop && lead.value === val){
+						result = lead;
+						loop = false;
+					}
+				}
+				if(result == undefined)
+					throw new Error('This search value is not found!');
+				return result;
+			}
+
+			searchNodeIndx(index){
+				let result;
+				let lead = this.head;
+				let counter = 0;
+				while(counter < index){
+					lead	= lead.next;
+					counter++;
+					if(counter === index)
+						result = lead;
+				}
+				return result;
+			}
+		}
+
+		let list = new List(100);
+		list.appendNode(200);
+		list.appendNode(300);
+		list.appendNode(400);
+		list.appendNode(500);
+		list.insertNode(600,2);
+		list.insertNode(700,3);
+		// list.traversing();
+		// list.deleteNode(1);
+		// list.deleteNode(4);
+		// list.deleteNode(5);
+	</script>
+</body>
+</html>
