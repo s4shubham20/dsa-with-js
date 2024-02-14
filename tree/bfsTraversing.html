@@ -87,6 +87,34 @@
 					return this.isMaxVal(root.right);
 				}
 			}
+
+			removeNode(value){
+				if (this.root === null) {
+		            return null;
+		          }
+				this.root = this.deleteNode(this.root, value);
+				// console.log(this.root)
+			}
+			deleteNode(root, val){
+				// console.log(root.value)
+				if (root.value > val) {
+					root.left = this.deleteNode(root.left, val);
+				}else if(root.value < val){
+					root.right = this.deleteNode(root.right, val);
+				}else{
+					if(!root.left && !root.right){
+						return null;
+					}else if(!root.left){
+						return root.right;
+					}else if(!root.right){
+						return root.left;
+					}
+
+					root.value = this.isMinValue(root.right);
+					root.right = this.deleteNode(root.right, root.value);
+				}
+				return root;
+			}
 		}
 
 		let bfsTree = new BFSTree();
@@ -97,10 +125,12 @@
 		bfsTree.makeTree(12);
 		bfsTree.makeTree(21);
 		bfsTree.makeTree(40);
-		// bfsTree.bfsTraversal();
+		bfsTree.bfsTraversal();
 		let minVal = bfsTree.isMinValue(bfsTree.root);
 		let isMaxVal = bfsTree.isMaxVal(bfsTree.root);
 		console.log(`minimum value of tree is ${minVal} and maximum value of tree is ${isMaxVal}`);
+		let removeVal = bfsTree.removeNode(25)
+		// console.log(removeVal);
 	</script>
 </body>
 </html>
