@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Binary Search Tree (Insert Node inside a tree)</title>
+	<title>Binary Search Tree (Insert Node inside at)</title>
 </head>
 <body>
 
@@ -51,14 +51,36 @@
 			isTreeEmpty(){
 				return this.root === null;
 			}
+
+			search(root,val){
+				if(root === null){
+					return false;
+				}else if(root.value === val){
+					return true;
+				}else if(root.value > val){
+					return this.search(root.left, val);
+				}else{
+					return this.search(root.right, val);
+				}
+			}
+
+			preOrder(root){
+				if(root != null){
+					this.preOrder(root.left)
+					console.log(root.value);
+					this.preOrder(root.right)
+				}
+			}
 		}
 
-		let tree = new BSTree(100);
+		let tree = new BSTree();
 		tree.makeTree(14);
 		tree.makeTree(10);
 		tree.makeTree(15);
 		tree.makeTree(34);
 		tree.makeTree(12);
+		tree.preOrder(tree.root);
+		console.log(tree.search(tree.root, 10));
 	</script>
 </body>
 </html>

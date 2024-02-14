@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Breadth First Search Traversing In Binary Search Tree</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Node{
+			constructor(val)
+			{
+				this.left = null;
+				this.value = val;
+				this.right = null;
+			}
+		}
+
+		class BFSTree{
+			constructor()
+			{
+				this.root = null;
+			}
+
+			isTreeEmpty()
+			{
+				return this.root === null;
+			}
+
+			makeTree(val)
+			{
+				let newNode = new Node(val);
+				if(this.root === null){
+					this.root = newNode;
+				}else{
+					this.insertNode(this.root, newNode)
+				}
+			}
+
+			insertNode(root, val)
+			{
+				if(root.value > val.value){
+					if(root.left === null){
+						root.left = val;
+					}else{
+						this.insertNode(root.left, val)
+					}
+				}else{
+					if(root.right === null){
+						root.right = val;
+					}else{
+						this.insertNode(root.right, val);
+					}
+				}
+			}
+
+			bfsTraversal()
+			{
+				let queue = []; 
+				queue.push(this.root);
+				while(queue.length){
+					let current = queue.shift();
+					if(current.left){
+						queue.push(current.left);
+					}
+					if(current.right){
+						queue.push(current.right);
+					}
+					console.log(current.value);
+				}
+			}
+
+			// minimum value
+
+			isMinValue(root){
+				if(!root.left){
+					return root.value;
+				}else{
+					return this.isMinValue(root.left);
+				}
+			}
+
+			isMaxVal(root){
+				if(!root.right){
+					return root.value;
+				}else{
+					return this.isMaxVal(root.right);
+				}
+			}
+		}
+
+		let bfsTree = new BFSTree();
+		bfsTree.makeTree(20);
+		bfsTree.makeTree(10);
+		bfsTree.makeTree(25);
+		bfsTree.makeTree(4);
+		bfsTree.makeTree(12);
+		bfsTree.makeTree(21);
+		bfsTree.makeTree(40);
+		// bfsTree.bfsTraversal();
+		let minVal = bfsTree.isMinValue(bfsTree.root);
+		let isMaxVal = bfsTree.isMaxVal(bfsTree.root);
+		console.log(`minimum value of tree is ${minVal} and maximum value of tree is ${isMaxVal}`);
+	</script>
+</body>
+</html>
