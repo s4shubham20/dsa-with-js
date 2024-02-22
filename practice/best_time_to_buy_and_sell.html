@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Best time to buy and sell stock</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		const maxProfit = (prices) => {
+			let maxVal = 0;
+    		for(let i = 0; i < prices.length; i++){
+    			let profit;
+    			for(let j = i+1; j < prices.length; j++){
+    				profit = prices[j] - prices[i];
+					maxVal = Math.max(maxVal, profit);
+    			}
+    		}
+    		return maxVal;
+		};
+
+		// let prices = [7,1,5,3,6,4];
+		let prices = [7,6,4,3,1];
+		let profit = maxProfit(prices);
+		console.log(profit);
+	</script>
+</body>
+</html>

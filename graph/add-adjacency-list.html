@@ -30,6 +30,31 @@
 				this.data[v1].push(v2);
 				this.data[v2].push(v1);
 			}
+
+			removeEdge(v1, v2){
+				let removeEdgeV1 = this.data[v1].filter((item) => {
+					return item != v2;
+				});
+				this.data[v1] = removeEdgeV1;
+				console.log(removeEdgeV1);
+				let removeEdgeV2 = this.data[v2].filter((item) => {
+					return item != v1;
+				});
+				this.data[v2] = removeEdgeV2;
+				console.log(removeEdgeV2)
+			}
+
+			removeVertice(vertice){
+				if(!this.data[vertice]){
+					return
+				}
+
+				for(let item of this.data[vertice]){
+					console.log(item);
+					this.removeEdge(vertice, item);
+				}
+				delete this.data[vertice];
+			}
 		}
 
 		let graph = new Graph();
@@ -42,6 +67,9 @@
 		graph.addEdge('a','c')
 		graph.addEdge('b','c')
 		graph.addEdge('b','d')
+		graph.removeVertice('a');
+		// graph.removeEdge('a','b');
+		// graph.removeEdge('b','d');
 		console.log(graph.data);
 	</script>
 </body>
