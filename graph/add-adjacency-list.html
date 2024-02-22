@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Add Vertices in Graph</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Graph{
+			constructor(){
+				this.data = {};
+			}
+
+			addVertices(vertice){
+				if(!this.data[vertice]){
+					this.data[vertice] = [];
+				}
+			}
+
+			addEdge(v1, v2){
+				if(!this.data[v1]){
+					this.addVertices(v1);
+				}
+
+				if(this.data[v2]){
+					this.addVertices(v2);
+				}
+
+				this.data[v1].push(v2);
+				this.data[v2].push(v1);
+			}
+		}
+
+		let graph = new Graph();
+		graph.addVertices('a');
+		graph.addVertices('b');
+		graph.addVertices('c');
+		graph.addVertices('d');
+		graph.addVertices('e');
+		let addEdge = graph.addEdge('a','b')
+		graph.addEdge('a','c')
+		graph.addEdge('b','c')
+		graph.addEdge('b','d')
+		console.log(graph.data);
+	</script>
+</body>
+</html>

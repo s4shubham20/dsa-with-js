@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Graph Adjacency Matrix</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		// matrix
+		let data = [
+				[0,1,1,0],
+				[1,0,1,1],
+				[1,1,0,0],
+				[0,1,0,0],
+			];
+		let adjList = {
+			'a': ['b','c'],
+			'b': ['a','c','d'],
+			'c': ['a','b'],
+			'd': ['b'],
+		};
+		console.log(data);
+		console.log(adjList);
+	</script>
+</body>
+</html>
